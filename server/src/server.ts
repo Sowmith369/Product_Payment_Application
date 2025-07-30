@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/database.js';
 import authRoutes from './routes/authRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 
 
 dotenv.config();
@@ -22,6 +23,8 @@ app.get('/', (_req, res) => {
   res.send('Order & Payment Management API is running!');
 });
 app.use('/api/auth', authRoutes);
+app.use('/api/product', productRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
